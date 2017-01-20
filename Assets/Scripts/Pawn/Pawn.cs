@@ -58,7 +58,9 @@ public class Pawn : MonoBehaviour
 
 	[Header("Physics")]
 	public float maxSpeed = 5;
+	public float velocityDamping = 5;
 	internal CharacterController body;
+	internal Vector3 velocity;
 
 	public virtual void Awake()
 	{
@@ -66,10 +68,23 @@ public class Pawn : MonoBehaviour
 	}
 	public virtual void Update()
 	{
+		// Damping
+		velocity.x -= velocity.x * velocityDamping * Time.deltaTime;
+		velocity.z -= velocity.z * velocityDamping * Time.deltaTime;
 
+		// Move the character
+		velocity += Physics.gravity * Time.deltaTime;
+		body.Move(velocity * Time.deltaTime);
 	}
 	public virtual void FixedUpdate()
 	{
 
+	}
+
+	void LateUpdate()
+	{
+		Vector3 newRot = transform.eulerAngles;
+		newRot.y = The.gameCamera.transform.eulerAngles.y;
+		transform.eulerAngles = newRot;
 	}
 }
