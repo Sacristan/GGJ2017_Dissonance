@@ -1,0 +1,9 @@
+____ Dissonance ____
+
+Serious Sam like
+Open Areas
+
+Guns:
+Double barrel shotgun - infinite ammo. 
+Rocket launcher - Quakelike rocket launcher. Rocket jumping.
+Wave gun - Distorts reality around its projectile. Area damage. Kills with an explosion. Chargeable.
