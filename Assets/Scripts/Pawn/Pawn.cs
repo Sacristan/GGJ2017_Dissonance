@@ -61,6 +61,7 @@ public class Pawn : MonoBehaviour
 	public float velocityDamping = 5;
 	internal CharacterController body;
 	internal Vector3 velocity;
+	internal bool grounded;
 
 	public virtual void Awake()
 	{
@@ -68,6 +69,27 @@ public class Pawn : MonoBehaviour
 	}
 	public virtual void Update()
 	{
+		// Check for ground
+		/*Collider groundColliders = Physics.Raycast(transform.position + new Vector3(0, 0.2f, 0), -Vector3.up, 0.5f, );
+		if (groundColliders.Length > 0)
+		{
+			foreach (var item in groundColliders)
+			{
+				if (item.gameObject != gameObject)
+				{
+					grounded = true;
+				}
+				else
+				{
+					grounded = false;
+				}
+			}
+		}
+		else
+		{
+			grounded = false;
+		}*/
+
 		// Damping
 		velocity.x -= velocity.x * velocityDamping * Time.deltaTime;
 		velocity.z -= velocity.z * velocityDamping * Time.deltaTime;

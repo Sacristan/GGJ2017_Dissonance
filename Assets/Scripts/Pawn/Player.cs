@@ -47,7 +47,7 @@ public class Player : Pawn
 
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			velocity.y = 20;
+			Jump();
 		}
 
 		if (inputVec.magnitude > 1)
@@ -55,10 +55,19 @@ public class Player : Pawn
 			inputVec = inputVec.normalized;
 		}
 
-		velocity += The.gameCamera.transform.rotation * new Vector3(inputVec.x, 0, inputVec.y) * maxSpeed * Time.deltaTime;
+		Quaternion camRot = Quaternion.Euler(0, The.gameCamera.yaw, 0);
+		velocity += camRot * new Vector3(inputVec.x, 0, inputVec.y) * maxSpeed * Time.deltaTime;
 	}
 	public override void FixedUpdate()
 	{
 		base.FixedUpdate();
+	}
+
+	void Jump()
+	{
+		if (grounded)
+		{
+			velocity.y = 10;
+		}
 	}
 }
