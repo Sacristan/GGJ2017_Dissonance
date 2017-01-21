@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour {
+public class RocketLauncher : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

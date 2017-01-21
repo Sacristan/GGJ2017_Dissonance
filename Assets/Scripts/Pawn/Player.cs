@@ -6,6 +6,8 @@ public class Player : Pawn, IDamageable
 {
 	[Header("Animation")]
 	public Animator armAnimator;
+	public Transform leftWeaponAnchor;
+	public Transform rightWeaponAnchor;
 
 	[Header("Equipment")]
 	public List<Weapon> weapon = new List<Weapon>();
@@ -13,7 +15,9 @@ public class Player : Pawn, IDamageable
 	public float mana;
 	public int shotgunAmmo;
 	public int rocketAmmo;
-	public int railAmmo;
+	public int plasmaAmmo;
+
+	internal int currentAmmo = 10;
 
 	// Other stuff
 	private Vector2 inputVec;
@@ -93,6 +97,14 @@ public class Player : Pawn, IDamageable
 	}
 
 	public void AddWeapon()
+	{
+
+	}
+	public void AddAbility()
+	{
+
+	}
+	public void AddAmmo()
 	{
 
 	}

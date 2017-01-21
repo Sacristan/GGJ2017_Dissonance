@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameLogic : MonoBehaviour {
+public class GameLogic : MonoBehaviour
+{
+	internal bool gameOver;
+	internal int score;
 
-	// Use this for initialization
-	void Start () {
-		
+	void Awake()
+	{
+		The.gameLogic = this;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void AddScore(int amount)
+	{
+		score += amount;
+		The.gameUI.UpdateScoreGraphics();
+	}
+
+	public void GameOver()
+	{
+		gameOver = true;
 	}
 }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 93769892e5ee4364faa72109af0e6a6b
-timeCreated: 1485015377
+timeCreated: 1485034066
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -11,80 +11,91 @@ ModelImporter:
     100006: ArmController
     100008: ArmPole_L
     100010: ArmPole_R
-    100012: Body
-    100014: ForeArm_L
-    100016: ForeArm_R
-    100018: Hand_L
-    100020: Hand_R
-    100022: HandController
-    100024: HandIK_L
-    100026: HandIK_R
-    100028: IcoController
-    100030: IndexFinger1_L
-    100032: IndexFinger1_R
-    100034: IndexFinger2_L
-    100036: IndexFinger2_R
-    100038: MiddleFinger1_L
-    100040: MiddleFinger1_R
-    100042: MiddleFinger2_L
-    100044: MiddleFinger2_R
-    100046: //RootNode
-    100048: RingFinger1_L
-    100050: RingFinger1_R
-    100052: RingFinger2_L
-    100054: RingFinger2_R
-    100056: Thumb1_L
-    100058: Thumb1_R
-    100060: Thumb2_L
-    100062: Thumb2_R
+    100012: Arms
+    100014: Base
+    100016: ForeArm_L
+    100018: ForeArm_R
+    100020: Hand_L
+    100022: Hand_R
+    100024: HandController
+    100026: Handgun_Gizmo
+    100028: HandIK_L
+    100030: HandIK_R
+    100032: IcoController
+    100034: IndexFinger1_L
+    100036: IndexFinger1_R
+    100038: IndexFinger2_L
+    100040: IndexFinger2_R
+    100042: MiddleFinger1_L
+    100044: MiddleFinger1_R
+    100046: MiddleFinger2_L
+    100048: MiddleFinger2_R
+    100050: //RootNode
+    100052: RingFinger1_L
+    100054: RingFinger1_R
+    100056: RingFinger2_L
+    100058: RingFinger2_R
+    100060: Thumb1_L
+    100062: Thumb1_R
+    100064: Thumb2_L
+    100066: Thumb2_R
+    100068: WeaponHolder_L
+    100070: WeaponHolder_R
     400000: Arm_L
     400002: Arm_R
     400004: Armature
     400006: ArmController
     400008: ArmPole_L
     400010: ArmPole_R
-    400012: Body
-    400014: ForeArm_L
-    400016: ForeArm_R
-    400018: Hand_L
-    400020: Hand_R
-    400022: HandController
-    400024: HandIK_L
-    400026: HandIK_R
-    400028: IcoController
-    400030: IndexFinger1_L
-    400032: IndexFinger1_R
-    400034: IndexFinger2_L
-    400036: IndexFinger2_R
-    400038: MiddleFinger1_L
-    400040: MiddleFinger1_R
-    400042: MiddleFinger2_L
-    400044: MiddleFinger2_R
-    400046: //RootNode
-    400048: RingFinger1_L
-    400050: RingFinger1_R
-    400052: RingFinger2_L
-    400054: RingFinger2_R
-    400056: Thumb1_L
-    400058: Thumb1_R
-    400060: Thumb2_L
-    400062: Thumb2_R
+    400012: Arms
+    400014: Base
+    400016: ForeArm_L
+    400018: ForeArm_R
+    400020: Hand_L
+    400022: Hand_R
+    400024: HandController
+    400026: Handgun_Gizmo
+    400028: HandIK_L
+    400030: HandIK_R
+    400032: IcoController
+    400034: IndexFinger1_L
+    400036: IndexFinger1_R
+    400038: IndexFinger2_L
+    400040: IndexFinger2_R
+    400042: MiddleFinger1_L
+    400044: MiddleFinger1_R
+    400046: MiddleFinger2_L
+    400048: MiddleFinger2_R
+    400050: //RootNode
+    400052: RingFinger1_L
+    400054: RingFinger1_R
+    400056: RingFinger2_L
+    400058: RingFinger2_R
+    400060: Thumb1_L
+    400062: Thumb1_R
+    400064: Thumb2_L
+    400066: Thumb2_R
+    400068: WeaponHolder_L
+    400070: WeaponHolder_R
     2300000: ArmController
     2300002: HandController
-    2300004: IcoController
+    2300004: Handgun_Gizmo
+    2300006: IcoController
     3300000: ArmController
     3300002: HandController
-    3300004: IcoController
+    3300004: Handgun_Gizmo
+    3300006: IcoController
     4300000: HandController
     4300002: ArmController
     4300004: IcoController
-    4300006: Body
+    4300006: Handgun_Gizmo
+    4300008: Arms
     7400000: Default Take
-    7400002: ArmatureAction_001
-    7400004: Default
-    7400006: Standing
+    7400002: Default
+    7400004: GunIdleRight
+    7400006: GunShootRight
     9500000: //RootNode
-    13700000: Body
+    13700000: Arms
   materials:
     importMaterials: 1
     materialName: 0
