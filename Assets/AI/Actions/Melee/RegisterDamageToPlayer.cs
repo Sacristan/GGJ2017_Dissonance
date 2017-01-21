@@ -39,7 +39,7 @@ namespace Sacristan.Melee
             {
                 lastAttackTime = nodeEntryTime;
                 ai.WorkingMemory.SetItem<float>(memoryKey, nodeEntryTime);
-                playerObject.SendMessage("ReceiveDamage", damage);
+                playerObject.SendMessage("ApplyDamage", damage);
                 return ActionResult.SUCCESS;
             }
             else

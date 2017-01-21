@@ -24,6 +24,6 @@ MonoBehaviour:
   _updateFrequencyHours: 24
   _showWelcomeWindow: 1
   _displayVersionWarning: 1
-  _showDeprecatedRAINClasses: 0
+  _showDeprecatedRAINClasses: 1
   _defaultSerialization: 1
   _projectSkin: {fileID: 11400000, guid: 94aa5f813707fc44ea9d0d95ec00d194, type: 2}

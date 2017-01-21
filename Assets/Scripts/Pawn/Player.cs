@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Pawn
+public class Player : Pawn, IDamageable
 {
-
 	private Vector2 inputVec;
 
+	#region MonoBehaviour
 	public override void Awake()
 	{
 		base.Awake();
@@ -63,6 +63,8 @@ public class Player : Pawn
 		base.FixedUpdate();
 	}
 
+	#endregion
+
 	void Jump()
 	{
 		if (grounded)
@@ -70,4 +72,11 @@ public class Player : Pawn
 			velocity.y = 10;
 		}
 	}
+
+	#region DamageLogic
+	public void ApplyDamage(float damage)
+	{
+		Sacristan.Logger.Log (string.Format("Received {0} damage", damage));
+	}
+	#endregion
 }
