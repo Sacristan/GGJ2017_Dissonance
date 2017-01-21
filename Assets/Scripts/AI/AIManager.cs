@@ -10,11 +10,11 @@ public class AIManager : MonoBehaviour
     private SpawnerNestSpawner spawnerNestSpawner;
 
     [SerializeField]
-    private SpawnerNestBehaviour spawnerNestSpawn;
+    private SpawnerNest spawnerNest;
     #endregion
 
     #region Properties
-    public static SpawnerNestBehaviour SpawnerNestSpawn { get { return singletone.spawnerNestSpawn; } }
+    public static SpawnerNest SpawnerNest { get { return singletone.spawnerNest; } }
     #endregion
 
     #region MonoBehaviour

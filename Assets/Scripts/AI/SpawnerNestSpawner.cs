@@ -21,7 +21,7 @@ public class SpawnerNestSpawner : MonoBehaviour
     private IEnumerator SpawnRoutine()
     {
         Vector3 spawnPos = AIUtils.FindSuitableRandomPosition(transform.position, spawnRadius);
-        Instantiate(AIManager.SpawnerNestSpawn, spawnPos, Quaternion.identity);
+        Instantiate(AIManager.SpawnerNest, spawnPos, Quaternion.identity);
 
         float timeToWait = Random.Range(minSpawnTime, maxSpawnTime);
         yield return new WaitForSeconds(timeToWait);
