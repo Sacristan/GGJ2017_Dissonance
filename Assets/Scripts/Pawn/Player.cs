@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class Player : Pawn, IDamageable
 {
+	[Header("Animation")]
+	public Animator armAnimator;
+
+	[Header("Equipment")]
+	public List<Weapon> weapon = new List<Weapon>();
+	public List<Ability> ability = new List<Ability>();
+	public float mana;
+	public int shotgunAmmo;
+	public int rocketAmmo;
+	public int railAmmo;
+
+	// Other stuff
 	private Vector2 inputVec;
 
 	#region MonoBehaviour
@@ -16,9 +28,15 @@ public class Player : Pawn, IDamageable
 
 	public override void Update()
 	{
+		PlayerControls();
 		base.Update();
+	}
 
-		// Input Vector
+	#endregion
+
+	void PlayerControls()
+	{
+		// Movement
 		if (Input.GetKey(KeyCode.A))
 		{
 			inputVec.x = -1;
@@ -45,29 +63,43 @@ public class Player : Pawn, IDamageable
 			inputVec.y = 0;
 		}
 
+		if (inputVec.magnitude > 1)
+		{
+			inputVec = inputVec.normalized;
+		}
+		
+		// Jumping
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			Jump();
 		}
 
-		if (inputVec.magnitude > 1)
+		// Combat
+		if (Input.GetMouseButtonDown(0))
 		{
-			inputVec = inputVec.normalized;
+			Attack();
 		}
-
+		
+		// Apply movement input to velocity
 		Quaternion camRot = Quaternion.Euler(0, The.gameCamera.yaw, 0);
 		velocity += camRot * new Vector3(inputVec.x, 0, inputVec.y) * maxSpeed * Time.deltaTime;
 	}
-	public override void FixedUpdate()
+
+	public override void Attack()
 	{
-		base.FixedUpdate();
+		base.Attack();
+
+
 	}
 
-	#endregion
+	public void AddWeapon()
+	{
+
+	}
 
 	void Jump()
 	{
-		if (grounded)
+		if (body.isGrounded)
 		{
 			velocity.y = 10;
 		}

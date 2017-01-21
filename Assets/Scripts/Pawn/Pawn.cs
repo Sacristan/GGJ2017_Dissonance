@@ -55,13 +55,14 @@ public class Pawn : MonoBehaviour
 	[Header("Main")]
 	public Gender gender;
 	public Age age;
+	public float health;
+	public float maxHealth;
 
 	[Header("Physics")]
 	public float maxSpeed = 5;
 	public float velocityDamping = 5;
 	internal CharacterController body;
 	internal Vector3 velocity;
-	internal bool grounded;
 
 	public virtual void Awake()
 	{
@@ -69,38 +70,24 @@ public class Pawn : MonoBehaviour
 	}
 	public virtual void Update()
 	{
-		// Check for ground
-		/*Collider groundColliders = Physics.Raycast(transform.position + new Vector3(0, 0.2f, 0), -Vector3.up, 0.5f, );
-		if (groundColliders.Length > 0)
-		{
-			foreach (var item in groundColliders)
-			{
-				if (item.gameObject != gameObject)
-				{
-					grounded = true;
-				}
-				else
-				{
-					grounded = false;
-				}
-			}
-		}
-		else
-		{
-			grounded = false;
-		}*/
-
 		// Damping
 		velocity.x -= velocity.x * velocityDamping * Time.deltaTime;
 		velocity.z -= velocity.z * velocityDamping * Time.deltaTime;
 
 		// Move the character
-		velocity += Physics.gravity * Time.deltaTime;
 		body.Move(velocity * Time.deltaTime);
+		if (body.isGrounded)
+		{
+			velocity.y = -5;
+		}
+		else
+		{
+			velocity += Physics.gravity * Time.deltaTime;
+		}
 	}
-	public virtual void FixedUpdate()
-	{
 
+	public virtual void Attack()
+	{
 	}
 
 	void LateUpdate()
