@@ -17,7 +17,6 @@ namespace Sacristan
 #endif
         }
 
-
         public static void LogWarning(string message)
         {
 #if LOGGER_LOG_WARNING_ENABLED
@@ -30,7 +29,6 @@ namespace Sacristan
 #if LOGGER_LOG_ERROR_ENABLED
             Debug.LogError(message);
 #endif
-
         }
 
         public static void LogException(Exception exception)
@@ -39,7 +37,5 @@ namespace Sacristan
             Debug.LogError(string.Format("Exception message: {0} stacktrace: {1}", exception.Message, exception.StackTrace));
 #endif
         }
-
-
     }
 }
