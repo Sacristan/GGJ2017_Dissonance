@@ -490,8 +490,9 @@ GameObject:
   - component: {fileID: 488354}
   - component: {fileID: 9586942}
   - component: {fileID: 14344740}
+  - component: {fileID: 114250009993958754}
   m_Layer: 0
-  m_Name: Ranger
+  m_Name: RangedAI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2662,7 +2663,7 @@ MonoBehaviour:
     _serializedMetaDocument: <meta></meta>
     _serializedObjects:
     - {fileID: 131504}
-    - {fileID: 4900000, guid: 8dead93d61601cb498acc9de1e046528, type: 3}
+    - {fileID: 0}
     _serializedCustomData: []
 --- !u!137 &13726704
 SkinnedMeshRenderer:
@@ -2796,3 +2797,14 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131504}
   m_IsPrefabParent: 1
+--- !u!114 &114250009993958754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854a16127c5cf344e8919fdc0de67d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
