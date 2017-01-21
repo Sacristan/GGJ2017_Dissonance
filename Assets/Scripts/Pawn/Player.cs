@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sacristan.Messaging;
 
 public class Player : Pawn, IDamageable
 {
@@ -117,10 +118,16 @@ public class Player : Pawn, IDamageable
 		}
 	}
 
-	#region DamageLogic
-	public void ApplyDamage(float damage)
+    #region DamageLogic
+    public void ApplyDamage(float damage)
 	{
-		Sacristan.Logger.Log (string.Format("Received {0} damage", damage));
-	}
+		Sacristan.Logger.Log (string.Format("{0} received {1} damage", gameObject.name, damage));
+        Messenger<float>.Broadcast(Messages.ReceivedDamagePlayer, damage);
+    }
+
+    public void Die()
+    {
+        Messenger.Broadcast(Messages.DiedPlayer);
+    }
 	#endregion
 }
