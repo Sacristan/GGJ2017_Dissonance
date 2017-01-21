@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 9549858}
   - component: {fileID: 143185868652320316}
   m_Layer: 0
-  m_Name: ZombieAI
+  m_Name: MeleeAI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
