@@ -64,7 +64,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1594136314279274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.97, z: 4.78}
+  m_LocalPosition: {x: 0, y: 2, z: 4.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4262798614340248}
@@ -164,6 +164,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sunGraphics: {fileID: 4262798614340248}
   twitchRange: 0.03
+  screamSource: {fileID: 82473494622377502}
+  risingDuration: 5
+  risingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!212 &212808820347887786
 SpriteRenderer:
   m_ObjectHideFlags: 1
