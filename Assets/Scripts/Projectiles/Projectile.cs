@@ -10,12 +10,12 @@ public class Projectile : MonoBehaviour
 
 	internal Collider coll;
 
-	void Awake()
+	public virtual void Awake()
 	{
 		coll = GetComponent<Collider>();
 	}
 
-	void Update()
+	public virtual void Update()
 	{
 		transform.position += direction * speed * Time.deltaTime;
 	}
