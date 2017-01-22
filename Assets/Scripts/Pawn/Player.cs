@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sacristan.Messaging;
 
 public class Player : Pawn, IDamageable
 {
@@ -169,22 +168,21 @@ public class Player : Pawn, IDamageable
 	}
 	#endregion
 
+
+
+
 	#region  DamageLogic
-	public void ApplyDamage(float damage)
+	public override void ApplyDamage(float damage)
 	{
-		Sacristan.Logger.Log (string.Format("{0} received {1} damage at {2}", gameObject.name, damage, Time.realtimeSinceStartup));
-        Messenger<float>.Broadcast(Messages.ReceivedDamagePlayer, damage);
+		base.ApplyDamage(damage);
 
-        this.health = Mathf.Clamp(health - damage, 0, this.maxHealth); // clamp to ensure correct UI content
-        if (health <= 0) Die();
+		The.gameUI.UpdateHealthGraphics();
+	}
 
-        The.gameUI.healthText.text = string.Format("Health: {0}% ", health);
-    }
-
-    public void Die()
-    {
+	public override void Die()
+	{
+		base.Die();
 		The.gameLogic.GameOver();
-        Messenger.Broadcast(Messages.DiedPlayer);
-    }
+	}
 	#endregion
 }
