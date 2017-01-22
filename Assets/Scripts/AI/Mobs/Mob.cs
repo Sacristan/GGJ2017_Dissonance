@@ -39,7 +39,7 @@ public class Mob : Pawn, IDamageable
 
     }
 
-    public virtual void OnControllerColliderHit(ControllerColliderHit hit)
+    /*public virtual void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Projectile projectile = hit.gameObject.GetComponent<Projectile>();
 
@@ -53,10 +53,10 @@ public class Mob : Pawn, IDamageable
                     break;
             }
         }
-    }
+    }*/
     #endregion
 
-    public virtual void ApplyDamage(float damage)
+    /*public virtual void ApplyDamage(float damage)
     {
         Sacristan.Logger.Log(string.Format("{0} received {1} damage", gameObject.name, damage));
         Messenger<float>.Broadcast(receivedDamageKey, damage);
@@ -70,14 +70,14 @@ public class Mob : Pawn, IDamageable
         Sacristan.Logger.Log(string.Format("{0} Died", gameObject.name));
         Messenger.Broadcast(diedKey);
         ExecuteDeath();
-    }
+    }*/
 
     private void HandleSunKickedIn()
     {
-        ExecuteDeath();
+		Die();
     }
 
-    public virtual void ExecuteDeath()
+    public override void Die()
     {
         GameObject bloodSplatter = Instantiate(AIManager.BloodSplatter, transform.position, Quaternion.identity);
         GameObject audioEffect = new GameObject("DeathAudio");
