@@ -32,9 +32,6 @@ public class AIManager : MonoBehaviour
 
     [Header("AI Actors")]
     [SerializeField]
-    private float timeWhenSunKicksIn;
-
-    [SerializeField]
     private Spawner spawner;
 
     [SerializeField]

@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    [SerializeField]
+    private bool spawnNests = false;
+
+    [SerializeField]
+    private bool spawnMeleeMob = false;
+
+    [SerializeField]
+    private bool spawnRangedMob = false;
 
     #region Cache
 
@@ -11,9 +19,9 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(SpawnRoutine(AIManager.SpawnerNest.gameObject, AIManager.SpawnerNestSpawnConfig));
-        StartCoroutine(SpawnRoutine(AIManager.MeleeMob.gameObject, AIManager.MeleeMobSpawnConfig));
-        StartCoroutine(SpawnRoutine(AIManager.RangedMob.gameObject, AIManager.RangedMobSpawnConfig));
+       if(spawnNests) StartCoroutine(SpawnRoutine(AIManager.SpawnerNest.gameObject, AIManager.SpawnerNestSpawnConfig));
+       if(spawnMeleeMob) StartCoroutine(SpawnRoutine(AIManager.MeleeMob.gameObject, AIManager.MeleeMobSpawnConfig));
+       if(spawnRangedMob) StartCoroutine(SpawnRoutine(AIManager.RangedMob.gameObject, AIManager.RangedMobSpawnConfig));
     }
 
     private IEnumerator SpawnRoutine(GameObject objectToSpawn, SpawnConfig spawnConfig)
