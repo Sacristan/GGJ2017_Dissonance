@@ -55,14 +55,16 @@ public class Pawn : MonoBehaviour
 	[Header("Main")]
 	public Gender gender;
 	public Age age;
-	public float health;
-	public float maxHealth;
+	public float health = 100;
+	public float maxHealth = 100;
 
 	[Header("Physics")]
 	public float maxSpeed = 5;
 	public float velocityDamping = 5;
 	internal CharacterController body;
 	internal Vector3 velocity;
+
+	internal float attackCooldown;
 
 	public virtual void Awake()
 	{
@@ -83,6 +85,12 @@ public class Pawn : MonoBehaviour
 		else
 		{
 			velocity += Physics.gravity * Time.deltaTime;
+		}
+
+		// Combat
+		if (attackCooldown > 0)
+		{
+			attackCooldown -= Time.deltaTime;
 		}
 	}
 

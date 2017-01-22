@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 9586942}
   - component: {fileID: 14344740}
   m_Layer: 0
-  m_Name: Ranger
+  m_Name: RangedAI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2662,7 +2662,7 @@ MonoBehaviour:
     _serializedMetaDocument: <meta></meta>
     _serializedObjects:
     - {fileID: 131504}
-    - {fileID: 4900000, guid: 8dead93d61601cb498acc9de1e046528, type: 3}
+    - {fileID: 0}
     _serializedCustomData: []
 --- !u!137 &13726704
 SkinnedMeshRenderer:
