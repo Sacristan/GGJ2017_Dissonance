@@ -25,6 +25,7 @@ public class DestroyMyself : RAINAction
 
     private void KillMyself(GameObject go)
     {
-        UnityEngine.GameObject.Destroy(go);
+        Mob mob = go.GetComponent<Mob>();
+        mob.ExecuteDeath();
     }
 }

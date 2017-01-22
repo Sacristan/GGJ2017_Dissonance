@@ -58,6 +58,13 @@ public class AIManager : MonoBehaviour
     private Spawner spawnerInstance;
     #endregion
 
+    [Header("Effects")]
+    [SerializeField]
+    private GameObject bloodSplatter;
+
+    [SerializeField]
+    private AudioClip deathClip;
+
     #region Properties
     public static bool CanSpawnMobs
     {
@@ -75,6 +82,9 @@ public class AIManager : MonoBehaviour
     public static SpawnConfig MeleeMobSpawnConfig { get { return singletone.meleeMobSpawnConfig; } }
     public static SpawnConfig RangedMobSpawnConfig { get { return singletone.rangedMobSpawnConfig; } }
     public static SpawnConfig SpawnerNestSpawnConfig { get { return singletone.spawnerNestConfig; } }
+
+    public static GameObject BloodSplatter { get { return singletone.bloodSplatter; } }
+    public static AudioClip DeathClip { get { return singletone.deathClip; } }
     #endregion
 
     #region MonoBehaviour
@@ -83,7 +93,7 @@ public class AIManager : MonoBehaviour
         if (singletone == null) singletone = this;
 
         spawnerInstance = Instantiate<Spawner>(spawner);
-        spawnerInstance.transform.position = Vector3.zero;
+        spawnerInstance.transform.position = Vector3.zero + Vector3.up * 2f;
     }
 
     #endregion

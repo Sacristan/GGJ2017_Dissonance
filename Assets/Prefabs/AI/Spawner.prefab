@@ -51,3 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149e810ab6976be44afdedc3bc875cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnNests: 1
+  spawnMeleeMob: 0
+  spawnRangedMob: 0

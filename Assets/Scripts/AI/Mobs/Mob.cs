@@ -14,9 +14,13 @@ public class Mob : Pawn, IDamageable
     protected string receivedDamageKey = UNASSIGNED_KEY;
     protected string diedKey = UNASSIGNED_KEY;
 
+    private CharacterController characterController;
+
     #region MonoBehaviour
     public override void Awake()
     {
+        base.Awake();
+        characterController = GetComponent<CharacterController>();
     }
 
     public virtual void Start()
@@ -73,10 +77,17 @@ public class Mob : Pawn, IDamageable
         ExecuteDeath();
     }
 
-    private void ExecuteDeath()
+    public virtual void ExecuteDeath()
     {
-        //Big explosion
-        //Sound
-        throw new NotImplementedException();
+        GameObject bloodSplatter = Instantiate(AIManager.BloodSplatter, transform.position, Quaternion.identity);
+        GameObject audioEffect = new GameObject("DeathAudio");
+        audioEffect.transform.position = transform.position;
+
+        AudioSource audioSource = audioEffect.AddComponent<AudioSource>();
+
+        audioSource.PlayOneShot(AIManager.DeathClip, 1f);
+
+        Destroy(bloodSplatter, 2f);
+        Destroy(gameObject);
     }
 }

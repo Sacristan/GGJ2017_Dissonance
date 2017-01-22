@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1624513728496362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -69,3 +69,5 @@ MonoBehaviour:
     minSpawnTime: 5
     maxSpawnTime: 15
     spawnRadius: 100
+  bloodSplatter: {fileID: 194062, guid: 8c27aeead6d968e4ba986702d6b84335, type: 2}
+  deathClip: {fileID: 8300000, guid: 9868e80d2162dd54d87cfa00967395e4, type: 3}
