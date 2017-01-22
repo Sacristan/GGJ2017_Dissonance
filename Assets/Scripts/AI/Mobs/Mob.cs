@@ -2,7 +2,7 @@
 using Sacristan.Messaging;
 using System;
 
-public class Mob : MonoBehaviour, IDamageable
+public class Mob : Pawn, IDamageable
 {
     public class KeyNotAssignedException: Exception
     {
@@ -15,7 +15,7 @@ public class Mob : MonoBehaviour, IDamageable
     protected string diedKey = UNASSIGNED_KEY;
 
     #region MonoBehaviour
-    public virtual void Awake()
+    public override void Awake()
     {
 
     }
@@ -26,7 +26,7 @@ public class Mob : MonoBehaviour, IDamageable
         if (diedKey == UNASSIGNED_KEY) throw new KeyNotAssignedException();
     }
 
-    public virtual void Update()
+    public override void Update()
     {
 
     }
