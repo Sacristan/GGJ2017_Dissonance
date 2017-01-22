@@ -64,6 +64,12 @@ public class Pawn : MonoBehaviour
 	internal CharacterController body;
 	internal Vector3 velocity;
 
+	[Header("Audio")]
+	public AudioClip[] painSounds;
+	public AudioClip[] deathSounds;
+	public AudioClip[] jumpSounds;
+
+	// Some private stuff
 	internal float attackCooldown;
 
 	public virtual void Awake()
@@ -94,6 +100,9 @@ public class Pawn : MonoBehaviour
 		}
 	}
 
+	public virtual void Jump()
+	{
+	}
 	public virtual void Attack()
 	{
 	}

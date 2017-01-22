@@ -94,6 +94,7 @@ ModelImporter:
     7400002: Default
     7400004: GunIdleRight
     7400006: GunShootRight
+    7400008: GunDrawRight
     9500000: //RootNode
     13700000: Arms
   materials:

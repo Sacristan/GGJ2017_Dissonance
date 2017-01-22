@@ -20,6 +20,7 @@ public class GameLogic : MonoBehaviour
 
 	public void GameOver()
 	{
+		The.gameUI.GameOver();
 		gameOver = true;
 	}
 }

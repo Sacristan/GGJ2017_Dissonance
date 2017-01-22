@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4125835764872598}
-  - component: {fileID: 114004272851212234}
+  - component: {fileID: 114534294686482406}
   m_Layer: 31
   m_Name: ArmsHolder
   m_TagString: Untagged
@@ -1114,7 +1114,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -1148,7 +1148,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -1197,18 +1197,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114004272851212234
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1429753936611742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5083975425dfbc4db74aab4debe245c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offset: {x: 0, y: -0.2, z: 0}
 --- !u!114 &114128941697595440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1279,15 +1267,36 @@ MonoBehaviour:
   maxHealth: 100
   maxSpeed: 175
   velocityDamping: 10
+  painSounds:
+  - {fileID: 8300000, guid: 66c3525403ef4c147a2a8871774ac23c, type: 3}
+  - {fileID: 8300000, guid: d726917287261b24da3513da74922e12, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: d726917287261b24da3513da74922e12, type: 3}
+  jumpSounds:
+  - {fileID: 8300000, guid: e4003b97f4fb82b4586bcaa5876284d6, type: 3}
   armAnimator: {fileID: 95480279356249452}
   leftWeaponAnchor: {fileID: 4562596603950062}
   rightWeaponAnchor: {fileID: 4789277374327816}
-  weapons: []
+  weapons:
+  - {fileID: 114096820399615252, guid: 26015116084dbe345908b37f8900eb2b, type: 2}
   abilities: []
   mana: 0
   shotgunAmmo: 0
   rocketAmmo: 0
   plasmaAmmo: 0
+--- !u!114 &114534294686482406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1429753936611742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5083975425dfbc4db74aab4debe245c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: -0.2, z: 0}
+  rightHand: {fileID: 4309112994221732}
 --- !u!114 &114679467186227156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1313,7 +1322,7 @@ SkinnedMeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1757299109750240}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
