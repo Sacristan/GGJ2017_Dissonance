@@ -236,6 +236,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4125835764872598}
+  - component: {fileID: 114004272851212234}
   m_Layer: 31
   m_Name: ArmsHolder
   m_TagString: Untagged
@@ -1105,7 +1106,7 @@ Camera:
   m_GameObject: {fileID: 1041406424658400}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -1118,7 +1119,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 2147483615
@@ -1196,6 +1197,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114004272851212234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1429753936611742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5083975425dfbc4db74aab4debe245c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: -0.2, z: 0}
 --- !u!114 &114128941697595440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1262,15 +1275,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gender: 1
   age: 2
-  health: 0
-  maxHealth: 0
+  health: 100
+  maxHealth: 100
   maxSpeed: 175
   velocityDamping: 10
   armAnimator: {fileID: 95480279356249452}
   leftWeaponAnchor: {fileID: 4562596603950062}
   rightWeaponAnchor: {fileID: 4789277374327816}
-  weapon: []
-  ability: []
+  weapons: []
+  abilities: []
   mana: 0
   shotgunAmmo: 0
   rocketAmmo: 0

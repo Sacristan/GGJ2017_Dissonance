@@ -11,14 +11,15 @@ public class Player : Pawn, IDamageable
 	public Transform rightWeaponAnchor;
 
 	[Header("Equipment")]
-	public List<Weapon> weapon = new List<Weapon>();
-	public List<Ability> ability = new List<Ability>();
+	public List<Weapon> weapons = new List<Weapon>();
+	public List<Ability> abilities = new List<Ability>();
 	public float mana;
 	public int shotgunAmmo;
 	public int rocketAmmo;
 	public int plasmaAmmo;
 
 	internal int currentAmmo = 10;
+	internal Weapon currentWeapon;
 
 	// Other stuff
 	private Vector2 inputVec;
@@ -29,6 +30,7 @@ public class Player : Pawn, IDamageable
 		base.Awake();
 
 		The.player = this;
+		SwitchWeapon(0);
 	}
 
 	public override void Update()
@@ -80,7 +82,13 @@ public class Player : Pawn, IDamageable
 		}
 
 		// Combat
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButton(0))
+		{
+			Attack();
+		}
+
+		// Switching weapons
+		if (Input.GetKeyDown(KeyCode.Alpha0))
 		{
 			Attack();
 		}
@@ -88,26 +96,6 @@ public class Player : Pawn, IDamageable
 		// Apply movement input to velocity
 		Quaternion camRot = Quaternion.Euler(0, The.gameCamera.yaw, 0);
 		velocity += camRot * new Vector3(inputVec.x, 0, inputVec.y) * maxSpeed * Time.deltaTime;
-	}
-
-	public override void Attack()
-	{
-		base.Attack();
-
-
-	}
-
-	public void AddWeapon()
-	{
-
-	}
-	public void AddAbility()
-	{
-
-	}
-	public void AddAmmo()
-	{
-
 	}
 
 	void Jump()
@@ -118,8 +106,49 @@ public class Player : Pawn, IDamageable
 		}
 	}
 
-    #region DamageLogic
-    public void ApplyDamage(float damage)
+	#region CombatLogic
+	public override void Attack()
+	{
+		base.Attack();
+
+		if (attackCooldown <= 0)
+		{
+			armAnimator.SetTrigger("Attack");
+			currentWeapon.Attack();
+			The.gameUI.UpdateAmmoGraphics();
+		}
+	}
+	public void AddWeapon()
+	{
+
+	}
+	public void SwitchWeapon(int targetWeapon)
+	{
+		if (currentWeapon)
+		{
+			Destroy(currentWeapon.gameObject);
+		}
+
+		currentWeapon = Instantiate(weapons[targetWeapon]);
+		currentWeapon.owner = this;
+
+		currentWeapon.transform.SetParent(rightWeaponAnchor);
+		currentWeapon.transform.localPosition = Vector3.zero;
+		currentWeapon.transform.localRotation = Quaternion.identity;
+		currentWeapon.transform.localScale = Vector3.one;
+	}
+	public void AddAbility()
+	{
+
+	}
+	public void AddAmmo()
+	{
+
+	}
+	#endregion
+
+	#region  DamageLogic
+	public void ApplyDamage(float damage)
 	{
 		Sacristan.Logger.Log (string.Format("{0} received {1} damage", gameObject.name, damage));
         Messenger<float>.Broadcast(Messages.ReceivedDamagePlayer, damage);
