@@ -20,7 +20,7 @@ public class GameCamera : MonoBehaviour
 
 	void Update()
 	{
-		if (Cursor.lockState == CursorLockMode.Locked)
+		if (Cursor.lockState == CursorLockMode.Locked && !The.gameLogic.gameOver)
 		{
 			yaw += Input.GetAxis("Mouse X") * Settings.mouseSensitivity * Time.deltaTime;
 			pitch -= Input.GetAxis("Mouse Y") * Settings.mouseSensitivity * Time.deltaTime;

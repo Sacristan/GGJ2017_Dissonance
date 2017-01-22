@@ -19,6 +19,10 @@ public class ViewModel : MonoBehaviour
 	private Vector3 bobOffset;
 	private float bob;
 
+	void Awake()
+	{
+		The.viewModel = this;
+	}
 	void Start()
 	{
 		yaw = The.gameCamera.transform.eulerAngles.y;

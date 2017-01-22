@@ -43,6 +43,9 @@ public class Player : Pawn, IDamageable
 
 	void PlayerControls()
 	{
+		if (The.gameLogic.gameOver || Console.isEnabled)
+			return;
+
 		// Movement
 		if (Input.GetKey(KeyCode.A))
 		{
@@ -182,6 +185,7 @@ public class Player : Pawn, IDamageable
 	public override void Die()
 	{
 		base.Die();
+		The.viewModel.gameObject.SetActive(false);
 		The.gameLogic.GameOver();
 	}
 	#endregion
