@@ -51,7 +51,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80840332f01cc0443ba7a142b5138ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnerNestSpawner: {fileID: 114344032204925542, guid: 2d7b8e1de5e66774f9550fce628a8a79,
+  spawner: {fileID: 114344032204925542, guid: 2d7b8e1de5e66774f9550fce628a8a79, type: 2}
+  meleeMob: {fileID: 114244369412345122, guid: cb75e21fd1ee0a645878c14df6d94761, type: 2}
+  rangedMob: {fileID: 114250009993958754, guid: d3804ee5b44f4a84593bbc03f4d16b79,
     type: 2}
-  spawnerNestSpawn: {fileID: 114016937933165338, guid: 3f943aee7555131429df9e1084ef7a74,
+  spawnerNest: {fileID: 114016937933165338, guid: 3f943aee7555131429df9e1084ef7a74,
     type: 2}
+  spawnerNestConfig:
+    minSpawnTime: 5
+    maxSpawnTime: 15
+    spawnRadius: 100
+  meleeMobSpawnConfig:
+    minSpawnTime: 5
+    maxSpawnTime: 15
+    spawnRadius: 100
+  rangedMobSpawnConfig:
+    minSpawnTime: 5
+    maxSpawnTime: 15
+    spawnRadius: 100

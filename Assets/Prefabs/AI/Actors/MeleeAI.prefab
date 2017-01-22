@@ -1405,10 +1405,10 @@ MonoBehaviour:
       reference="8"><_showVisual>True</_showVisual><_sensorName>Visual Sensor</_sensorName><_isActive>True</_isActive><_sensorColor>1,0,0.7655172,1</_sensorColor><_mountPoint
       sceneobject="3b8c377b-ca1e-4c35-9fc9-979d4a52dc1e" component="0"></_mountPoint><_positionOffset>0,0,0</_positionOffset><_angleOffset>0,0,0</_angleOffset><_filters></_filters><_range>10</_range><_canDetectSelf>False</_canDetectSelf><_horizontalAngle>180</_horizontalAngle><_verticalAngle>90</_verticalAngle><_lineOfSight>False</_lineOfSight><_lineOfSightMask>-5</_lineOfSightMask></element0></_sensors></_senses><_customElements></_customElements></_ai></component>
     _serializedMetaDocument: <meta><element0><key>/component/_ai+_selected</key><value
-      type="System.Int32">5</value></element0><element1><key>/component/_ai/_navigator/_graphTags+_foldout</key><value
+      type="System.Int32">0</value></element0><element1><key>/component/_ai/_navigator/_graphTags+_foldout</key><value
       type="System.Boolean">False</value></element1></meta>
     _serializedObjects:
-    - {fileID: 4900000, guid: 4c35bd35f99e9f64d86ecc4bbf1f53c8, type: 3}
+    - {fileID: 4900000, guid: 61468321b88b99d4dbba50138fe003e2, type: 3}
     _serializedCustomData: []
 --- !u!137 &13706738
 SkinnedMeshRenderer:
