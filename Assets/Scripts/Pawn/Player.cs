@@ -170,7 +170,7 @@ public class Player : Pawn, IDamageable
 	#region  DamageLogic
 	public void ApplyDamage(float damage)
 	{
-		Sacristan.Logger.Log (string.Format("{0} received {1} damage", gameObject.name, damage));
+		Sacristan.Logger.Log (string.Format("{0} received {1} damage at {2}", gameObject.name, damage, Time.realtimeSinceStartup));
         Messenger<float>.Broadcast(Messages.ReceivedDamagePlayer, damage);
     }
 
