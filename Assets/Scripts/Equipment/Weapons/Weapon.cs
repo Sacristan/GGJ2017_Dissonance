@@ -59,6 +59,7 @@ public class Weapon : MonoBehaviour
 			case AttackType.Projectile:
 				var projO = Instantiate(projectile, barrel.position, barrel.rotation);
 				projO.direction = owner.aimDirection;
+				Physics.IgnoreCollision(projO.GetComponent<Collider>(), owner.body);
 				break;
 			case AttackType.Special:
 				// Uh..

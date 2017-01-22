@@ -69,6 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 8
   damageMultiplier: 5
+  soundEffect: {fileID: 8300000, guid: 721195e7a9235ce41bd68ca08ff76a78, type: 3}
 --- !u!198 &198244060403854282
 ParticleSystem:
   m_ObjectHideFlags: 1

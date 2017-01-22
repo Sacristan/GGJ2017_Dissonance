@@ -58,7 +58,7 @@ public class ViewModel : MonoBehaviour
 		{
 			jumpVel = Mathf.Max(-0.2f, Mathf.Min(0.2f, -The.player.velocity.y * 0.01f))	;
 		}
-		position = Vector3.Lerp(position, offset + new Vector3(0, jumpVel, 0), positionStiffness * Time.deltaTime) + bobOffset;
+		position = Vector3.Lerp(position, offset + new Vector3(0, jumpVel, 0), positionStiffness * Time.deltaTime) + bobOffset - The.gameCamera.transform.rotation * The.gameCamera.shakeOffset * 0.1f;
 	}
 
 	void LateUpdate()

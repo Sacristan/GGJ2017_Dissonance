@@ -6,11 +6,11 @@ public class Explosion : MonoBehaviour
 {
 	public float radius = 5;
 	public float damageMultiplier = 5;
+	public AudioClip soundEffect;
 
 	void Start()
 	{
 		// Splash damage
-
 		Collider[] surroundingColliders = Physics.OverlapSphere(transform.position, radius);
 
 		foreach (var item in surroundingColliders)
@@ -26,6 +26,21 @@ public class Explosion : MonoBehaviour
 				pawnHit.velocity += (pawnHit.transform.position - transform.position).normalized * damageAmount;
 				break;
 			}
+		}
+
+		// Camera shake
+		float cameraDistance = Vector3.Distance(The.gameCamera.transform.position, transform.position);
+
+		if (cameraDistance < radius * 2)
+		{
+			The.gameCamera.Shake(((radius * 2) - cameraDistance) * 0.1f);
+		}
+
+		// Sound Effect
+		if (soundEffect)
+		{
+			var soundO = Sound.PlayClipAt(soundEffect, transform.position);
+			soundO.source.minDistance = 20;
 		}
 	}
 

@@ -8,6 +8,10 @@ public class GameCamera : MonoBehaviour
 	internal float pitch;
 	internal float roll;
 
+	private Vector3 offset = new Vector3(0, 1.5f, 0);
+	internal Vector3 shakeOffset;
+	private float shakeAmount;
+
 	void Awake()
 	{
 		The.gameCamera = this;
@@ -42,10 +46,30 @@ public class GameCamera : MonoBehaviour
 		{
 			Cursor.lockState = CursorLockMode.None;
 		}
+
+		// Camera Shaking
+		if (shakeAmount > 0)
+		{
+			shakeAmount -= Time.deltaTime;
+
+			shakeOffset = Random.insideUnitSphere * 0.5f * shakeAmount;
+
+			if (shakeAmount <= 0)
+			{
+				shakeAmount = 0;
+				shakeOffset = Vector3.zero;
+			}
+		}
+	}
+
+	public void Shake(float amount)
+	{
+		shakeAmount = amount;
 	}
 
 	void LateUpdate()
 	{
+		transform.localPosition = offset + shakeOffset;
 		transform.rotation = Quaternion.Euler(pitch, yaw, roll);
 	}
 }

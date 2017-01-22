@@ -43,7 +43,9 @@ public class SpawnerNest : Mob
         if (AIManager.CanSpawnMobs)
         {
             AIManager.RecalculateMobCount();
-            Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+
+			Vector2 offsetCircle = Random.insideUnitCircle.normalized * 1.5f;
+            Instantiate(prefabToSpawn, transform.position + new Vector3(offsetCircle.x, 0, offsetCircle.y), Quaternion.identity);
         }
     }
 }
