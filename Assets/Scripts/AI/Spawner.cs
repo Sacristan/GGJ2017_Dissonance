@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
         Vector3 spawnPos = AIUtils.FindSuitableRandomPosition(transform.position, spawnConfig.SpawnRadius);
 
         RaycastHit hit;
-        Physics.Raycast(spawnPos, Vector3.down, out hit);
+        Physics.Raycast(spawnPos + Vector3.up*2000	, Vector3.down, out hit);
         if (hit.collider != null) spawnPos = hit.point;
 
         Instantiate(objectToSpawn, spawnPos, Quaternion.identity);

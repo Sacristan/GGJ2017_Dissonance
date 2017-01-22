@@ -35,6 +35,7 @@ public class Projectile : MonoBehaviour
 	public virtual void Update()
 	{
 		transform.position += direction * speed * Time.deltaTime;
+		transform.rotation = Quaternion.LookRotation(direction);
 	}
 
 	public virtual void Impact()
