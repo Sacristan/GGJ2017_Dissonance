@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Sacristan.Messaging;
 using System;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -55,6 +56,8 @@ public class ScoreManager : MonoBehaviour
     {
         if (OnScoreChanged != null) OnScoreChanged();
         score += scoreToAdd;
+
+        The.gameUI.scoreText.text = string.Format("Score: {0}", score);
     }
     #endregion
 
