@@ -23,7 +23,10 @@ public class Explosion : MonoBehaviour
 			if (pawnHit)
 			{
 				pawnHit.ApplyDamage(damageAmount);
-				pawnHit.velocity += (pawnHit.transform.position + pawnHit.body.center - transform.position).normalized * damageAmount;
+				if (pawnHit.body)
+				{
+					pawnHit.velocity += (pawnHit.transform.position + pawnHit.body.center - transform.position).normalized * damageAmount;
+				}
 			}
 		}
 

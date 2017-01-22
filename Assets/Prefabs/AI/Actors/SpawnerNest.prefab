@@ -370,6 +370,8 @@ MonoBehaviour:
   painSounds: []
   deathSounds: []
   jumpSounds: []
+  bloodSplatterPrefab: {fileID: 1275468164049240, guid: f8d57e4a6d7aaec4ca91751784a7eea3,
+    type: 2}
   prefabToSpawn: {fileID: 1910688447802618, guid: 7886f22d063526442b9b59cbed1afb08,
     type: 2}
   spawnTime: 5

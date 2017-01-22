@@ -43,6 +43,23 @@ public class CrazySun : MonoBehaviour
 
 			yield return null;
 		}
+
+		//yield return new WaitForSeconds(1);
+
+		t = 0;
+		while (true)
+		{
+			t += Time.deltaTime;
+
+			screamSource.volume = 1-risingCurve.Evaluate(t);
+
+			if (t >= 1)
+			{
+				break;
+			}
+
+			yield return null;
+		}
 	}
 
     void LateUpdate()

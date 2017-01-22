@@ -16,8 +16,10 @@ public class Mob : Pawn, IDamageable
 
     protected CharacterController characterController;
 
-    #region MonoBehaviour
-    public override void Awake()
+	public GameObject bloodSplatterPrefab;
+
+	#region MonoBehaviour
+	public override void Awake()
     {
         base.Awake();
         characterController = GetComponent<CharacterController>();
@@ -82,15 +84,22 @@ public class Mob : Pawn, IDamageable
 
     public override void Die()
     {
+		GameObject chosenBloodEffect = AIManager.BloodSplatter;
+		if (bloodSplatterPrefab)
+		{
+			chosenBloodEffect = bloodSplatterPrefab;
+		}
+
         //ScoreManager.singletone.AddScore(20);
         Messenger.Broadcast(Messages.DiedNestMob);
-        GameObject bloodSplatter = Instantiate(AIManager.BloodSplatter, transform.position, Quaternion.identity);
+        GameObject bloodSplatter = Instantiate(chosenBloodEffect, transform.position, Quaternion.identity);
         GameObject audioEffect = new GameObject("DeathAudio");
         audioEffect.transform.position = transform.position;
 
         AudioSource audioSource = audioEffect.AddComponent<AudioSource>();
 
-        audioSource.PlayOneShot(AIManager.DeathClip, 1f);
+		//audioSource.PlayOneShot(AIManager.DeathClip, 1f);
+		Sound.PlayClipAt(AIManager.DeathClip, transform.position);
 
         Destroy(bloodSplatter, 2f);
         Destroy(gameObject);

@@ -37,14 +37,17 @@ public class GameCamera : MonoBehaviour
 			pitch = -pitchLimit;
 		}
 
-		// Limiting Cursor
-		if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+		if (!The.gameLogic.gameOver && !Console.isEnabled)
 		{
-			Cursor.lockState = CursorLockMode.Locked;
-		}
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			Cursor.lockState = CursorLockMode.None;
+			// Limiting Cursor
+			if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+			{
+				Cursor.lockState = CursorLockMode.Locked;
+			}
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				Cursor.lockState = CursorLockMode.None;
+			}
 		}
 
 		// Camera Shaking
