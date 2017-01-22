@@ -26,7 +26,7 @@ public class ViewModel : MonoBehaviour
 		position = The.gameCamera.transform.position;
 	}
 
-	void LateUpdate()
+	void Update()
 	{
 		Vector3 vel2D = new Vector3(The.player.velocity.x, 0, The.player.velocity.z);
 
@@ -50,13 +50,20 @@ public class ViewModel : MonoBehaviour
 
 		bob += bobAmount * 20 * Time.deltaTime;
 
-		bobOffset = The.gameCamera.transform.rotation * new Vector3(Mathf.Cos(Mathf.Deg2Rad * bob) * 1.5f, Mathf.Sin(Mathf.Deg2Rad * bob * 2), 0) * bobAmount * 0.003f;
+		bobOffset = The.gameCamera.transform.rotation * new Vector3(Mathf.Cos(Mathf.Deg2Rad * bob) * 1.5f, Mathf.Sin(Mathf.Deg2Rad * bob * 2), 0) * bobAmount * 0.001f;
 
-		const float positionStiffness = 60;
-		position = Vector3.Lerp(position, The.gameCamera.transform.position + The.gameCamera.transform.rotation * offset, positionStiffness * Time.deltaTime) + bobOffset;
+		const float positionStiffness = 20;
+		float jumpVel = 0;
+		if (!The.player.body.isGrounded)
+		{
+			jumpVel = Mathf.Max(-0.2f, Mathf.Min(0.2f, -The.player.velocity.y * 0.01f))	;
+		}
+		position = Vector3.Lerp(position, offset + new Vector3(0, jumpVel, 0), positionStiffness * Time.deltaTime) + bobOffset;
+	}
 
-
-		transform.position = position;
+	void LateUpdate()
+	{
+		transform.localPosition = position;
 		transform.rotation = Quaternion.Euler(pitch, yaw, roll);
 
 		rightHand.rotation *= rightHandRotation;
