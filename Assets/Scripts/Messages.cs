@@ -12,4 +12,6 @@
 
     public static string ReceivedDamagePlayer = "9";
     public static string DiedPlayer = "10";
+
+    public static string SunInitialised = "11";
 }

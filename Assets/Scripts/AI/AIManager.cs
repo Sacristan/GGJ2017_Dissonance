@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Sacristan.Messaging;
+using UnityEngine;
 
 [System.Serializable]
 public class SpawnConfig
@@ -31,6 +32,9 @@ public class AIManager : MonoBehaviour
 
     [Header("AI Actors")]
     [SerializeField]
+    private float timeWhenSunKicksIn;
+
+    [SerializeField]
     private Spawner spawner;
 
     [SerializeField]
@@ -53,6 +57,10 @@ public class AIManager : MonoBehaviour
     private SpawnConfig rangedMobSpawnConfig;
 
     private int _mobCount = 0;
+
+    private float initTime;
+    private Spawner spawnerInstance;
+    private bool sunActive = false;
     #endregion
 
     #region Properties
@@ -73,8 +81,19 @@ public class AIManager : MonoBehaviour
         if (singletone == null) singletone = this;
         else Destroy(singletone);
 
-        Spawner instance = Instantiate<Spawner>(spawner);
-        instance.transform.position = Vector3.zero;
+        spawnerInstance = Instantiate<Spawner>(spawner);
+        spawnerInstance.transform.position = Vector3.zero;
+
+        initTime = Time.realtimeSinceStartup;
+    }
+
+    private void Update()
+    {
+        if(!sunActive && Time.realtimeSinceStartup - initTime >= timeWhenSunKicksIn)
+        {
+            sunActive = true;
+
+        }
     }
 
     #endregion
@@ -83,5 +102,10 @@ public class AIManager : MonoBehaviour
     {
         singletone._mobCount = GameObject.FindObjectsOfType<Mob>().Length;
         Sacristan.Logger.Log(string.Format("Found {0} mobs", singletone._mobCount));
+    }
+
+    private void InitialiseSun()
+    {
+        Messenger.Broadcast(Messages.SunInitialised);
     }
 }
