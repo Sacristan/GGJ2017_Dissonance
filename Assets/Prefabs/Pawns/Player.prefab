@@ -1268,12 +1268,12 @@ MonoBehaviour:
   maxSpeed: 175
   velocityDamping: 10
   painSounds:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 66c3525403ef4c147a2a8871774ac23c, type: 3}
+  - {fileID: 8300000, guid: d726917287261b24da3513da74922e12, type: 3}
   deathSounds:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: d726917287261b24da3513da74922e12, type: 3}
   jumpSounds:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: e4003b97f4fb82b4586bcaa5876284d6, type: 3}
   armAnimator: {fileID: 95480279356249452}
   leftWeaponAnchor: {fileID: 4562596603950062}
   rightWeaponAnchor: {fileID: 4789277374327816}

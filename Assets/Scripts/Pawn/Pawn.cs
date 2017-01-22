@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sacristan.Messaging;
 
 public class Pawn : MonoBehaviour
 {
@@ -114,4 +115,23 @@ public class Pawn : MonoBehaviour
 		newRot.y = The.gameCamera.transform.eulerAngles.y;
 		transform.eulerAngles = newRot;
 	}
+
+	#region  DamageLogic
+	public virtual void ApplyDamage(float damage)
+	{
+		Sacristan.Logger.Log(string.Format("{0} received {1} damage at {2}", gameObject.name, damage, Time.realtimeSinceStartup));
+		Messenger<float>.Broadcast(Messages.ReceivedDamagePlayer, damage);
+
+		health = Mathf.Clamp(health - damage, 0, this.maxHealth); // clamp to ensure correct UI content
+		if (health <= 0)
+		{
+			Die();
+		}
+	}
+
+	public virtual void Die()
+	{
+		Messenger.Broadcast(Messages.DiedPlayer);
+	}
+	#endregion
 }
