@@ -54,7 +54,7 @@ public class ViewModel : MonoBehaviour
 
 		bob += bobAmount * 20 * Time.deltaTime;
 
-		bobOffset = The.gameCamera.transform.rotation * new Vector3(Mathf.Cos(Mathf.Deg2Rad * bob) * 1.5f, Mathf.Sin(Mathf.Deg2Rad * bob * 2), 0) * bobAmount * 0.001f;
+		bobOffset = The.gameCamera.transform.InverseTransformDirection(new Vector3(Mathf.Cos(Mathf.Deg2Rad * bob) * 1.5f, Mathf.Sin(Mathf.Deg2Rad * bob * 2), 0)) * bobAmount * 0.001f;
 
 		const float positionStiffness = 20;
 		float jumpVel = 0;
