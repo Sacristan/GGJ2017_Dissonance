@@ -80,6 +80,8 @@ public class Pawn : MonoBehaviour
 	}
 	public virtual void Update()
 	{
+        if (body == null) return; //TODO: kill me ? 
+
 		// Damping
 		velocity.x -= velocity.x * velocityDamping * Time.deltaTime;
 		velocity.z -= velocity.z * velocityDamping * Time.deltaTime;

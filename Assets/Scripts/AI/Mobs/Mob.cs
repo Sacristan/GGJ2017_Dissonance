@@ -29,11 +29,6 @@ public class Mob : Pawn, IDamageable
         if (diedKey == UNASSIGNED_KEY) throw new KeyNotAssignedException();
     }
 
-    public override void Update()
-    {
-
-    }
-
     public virtual void LateUpdate()
     {
 

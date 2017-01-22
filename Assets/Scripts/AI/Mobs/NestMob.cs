@@ -27,10 +27,20 @@ public class NestMob : Mob
 
     public override void Update()
     {
-        //base.Update();
-
         Vector3 target = _player.transform.position;
         Vector3 currentPos = transform.position;
+
+        Vector3 dir = target - currentPos;
+        dir.Normalize();
+
+        if (body.isGrounded)
+        {
+            Vector3 newVel = dir * speed * Time.deltaTime;
+            velocity.x = newVel.x;
+            velocity.z = newVel.z;
+        }
+
+        transform.rotation = Quaternion.LookRotation(dir);
 
         float distanceFromTarget = Vector3.Distance(target, currentPos);
 
@@ -40,14 +50,30 @@ public class NestMob : Mob
             Die();
             Destroy(this);
         }
-        else
-        {
-            Vector3 dir = target - currentPos;
-            dir.y = 0;
-            dir.Normalize();
 
-            //characterController.Move(dir * speed * Time.deltaTime);
-        }
+        base.Update();
+
+        ////base.Update();
+
+        //Vector3 target = _player.transform.position;
+        //Vector3 currentPos = transform.position;
+
+        //float distanceFromTarget = Vector3.Distance(target, currentPos);
+
+        //if (distanceFromTarget <= closeEnoughDistance)
+        //{
+        //    _player.ApplyDamage(damageToPlayer);
+        //    Die();
+        //    Destroy(this);
+        //}
+        //else
+        //{
+        //    Vector3 dir = target - currentPos;
+        //    dir.y = 0;
+        //    dir.Normalize();
+
+        //    //characterController.Move(dir * speed * Time.deltaTime);
+        //}
 
     }
 
