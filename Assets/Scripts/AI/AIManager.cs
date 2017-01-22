@@ -23,10 +23,13 @@ public class SpawnConfig
 
 public class AIManager : MonoBehaviour
 {
+    private static int MAX_MOB_COUNT = 50;
+
     private static AIManager singletone;
 
     #region Fields
 
+    [Header("AI Actors")]
     [SerializeField]
     private Spawner spawner;
 
@@ -39,6 +42,7 @@ public class AIManager : MonoBehaviour
     [SerializeField]
     private SpawnerNest spawnerNest;
 
+    [Header("Config objects:")]
     [SerializeField]
     private SpawnConfig spawnerNestConfig;
 
@@ -47,9 +51,13 @@ public class AIManager : MonoBehaviour
 
     [SerializeField]
     private SpawnConfig rangedMobSpawnConfig;
+
+    private int _mobCount = 0;
     #endregion
 
     #region Properties
+    public static bool CanSpawnMobs { get { return singletone._mobCount < MAX_MOB_COUNT; } }
+
     public static MeleeMob MeleeMob { get { return singletone.meleeMob; } }
     public static RangedMob RangedMob { get { return singletone.rangedMob; } }
     public static SpawnerNest SpawnerNest { get { return singletone.spawnerNest; } }
@@ -68,6 +76,12 @@ public class AIManager : MonoBehaviour
         Spawner instance = Instantiate<Spawner>(spawner);
         instance.transform.position = Vector3.zero;
     }
+
     #endregion
 
+    public static void RecalculateMobCount()
+    {
+        singletone._mobCount = GameObject.FindObjectsOfType<Mob>().Length;
+        Sacristan.Logger.Log(string.Format("Found {0} mobs", singletone._mobCount));
+    }
 }

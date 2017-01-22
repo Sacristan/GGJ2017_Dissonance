@@ -40,6 +40,10 @@ public class SpawnerNest : Mob
 
     private void SpawnPrefab()
     {
-        Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+        if (AIManager.CanSpawnMobs)
+        {
+            AIManager.RecalculateMobCount();
+            Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+        }
     }
 }
