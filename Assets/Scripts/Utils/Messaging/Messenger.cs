@@ -12,7 +12,7 @@ namespace Sacristan.Messaging
     internal static class MessengerInternal
     {
         static public Dictionary<string, Delegate> eventTable = new Dictionary<string, Delegate>();
-        static public readonly MessengerMode DEFAULT_MODE = MessengerMode.REQUIRE_LISTENER;
+        static public readonly MessengerMode DEFAULT_MODE = MessengerMode.DONT_REQUIRE_LISTENER;
 
         static public void OnListenerAdding(string eventType, Delegate listenerBeingAdded)
         {

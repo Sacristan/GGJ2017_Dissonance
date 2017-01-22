@@ -16,8 +16,8 @@ MonoBehaviour:
   - AssetPath: .currentai
     BehaviorTreeName: (No AI Selected)
     BehaviorTreeID: 1
-    LastUpdate: 636206587175471918
-    LastModified: 636206587185585087
+    LastUpdate: 636206601548173955
+    LastModified: 636206601513111527
     Errored: 0
   - AssetPath: .createxml
     BehaviorTreeName: Create New Behavior Tree
@@ -34,8 +34,8 @@ MonoBehaviour:
   - AssetPath: Assets/AI/BehaviorTrees/MeleeBehaviour.txt
     BehaviorTreeName: MeleeBehaviour
     BehaviorTreeID: 1
-    LastUpdate: 636206587175471918
-    LastModified: 636206587185585087
+    LastUpdate: 636206601548173955
+    LastModified: 636206601513111527
     Errored: 0
   - AssetPath: Assets/AI/BehaviorTrees/RangedMobBehaviourTree.txt
     BehaviorTreeName: RangedMobBehaviourTree
@@ -95,7 +95,7 @@ MonoBehaviour:
       _type: 4
       _stateIndex: 1
       _parent: 0
-      _lastUpdate: 636206587175471918
+      _lastUpdate: 636206601548173955
       _children: 02000000
       _variables: 
       _focused: 0
@@ -139,52 +139,8 @@ MonoBehaviour:
       _type: 20
       _stateIndex: 2
       _parent: 1
-      _lastUpdate: 636206586611904730
-      _children: 03000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: selectBehaviour
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: debugbreak
-        _currentValue: False
-        _recordChange: 1
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: usepriorities
-        _currentValue: False
-        _recordChange: 1
-        _changed: 0
-      _type: 19
-      _stateIndex: 3
-      _parent: 2
-      _lastUpdate: 636206586611904730
-      _children: 0400000005000000
+      _lastUpdate: 636206601548173955
+      _children: 0300000004000000
       _variables: 
       _focused: 0
     - _fields:
@@ -233,9 +189,9 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 1
-      _stateIndex: 4
-      _parent: 3
-      _lastUpdate: 636206587175471918
+      _stateIndex: 3
+      _parent: 2
+      _lastUpdate: 0
       _children: 
       _variables: 
       _focused: 0
@@ -277,10 +233,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 20
-      _stateIndex: 5
-      _parent: 3
-      _lastUpdate: 636206586611904730
-      _children: 060000000a0000000b000000
+      _stateIndex: 4
+      _parent: 2
+      _lastUpdate: 636206601548173955
+      _children: 05000000090000000a000000
       _variables: 
       _focused: 0
     - _fields:
@@ -321,10 +277,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 20
-      _stateIndex: 6
-      _parent: 5
-      _lastUpdate: 636206586611904730
-      _children: 070000000800000009000000
+      _stateIndex: 5
+      _parent: 4
+      _lastUpdate: 636206601548173955
+      _children: 060000000700000008000000
       _variables: 
       _focused: 0
     - _fields:
@@ -373,8 +329,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 14
-      _stateIndex: 7
-      _parent: 6
+      _stateIndex: 6
+      _parent: 5
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -433,8 +389,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 15
-      _stateIndex: 8
-      _parent: 6
+      _stateIndex: 7
+      _parent: 5
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -485,8 +441,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 14
-      _stateIndex: 9
-      _parent: 6
+      _stateIndex: 8
+      _parent: 5
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -537,8 +493,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 14
-      _stateIndex: 10
-      _parent: 5
+      _stateIndex: 9
+      _parent: 4
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -589,8 +545,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 1
-      _stateIndex: 11
-      _parent: 5
+      _stateIndex: 10
+      _parent: 4
       _lastUpdate: 0
       _children: 
       _variables: 
