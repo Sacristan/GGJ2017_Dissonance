@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
 		transform.rotation = Quaternion.LookRotation(direction);
 	}
 
-	public virtual void Impact()
+	public virtual void Impact(Vector3 pos)
 	{
 		if (impactSound)
 		{
@@ -46,7 +46,7 @@ public class Projectile : MonoBehaviour
 		}
 		if (impactEffect)
 		{
-			Instantiate(impactEffect, transform.position, impactEffect.rotation);
+			Instantiate(impactEffect, pos, impactEffect.rotation);
 		}
 
 		Destroy(gameObject);
@@ -54,7 +54,11 @@ public class Projectile : MonoBehaviour
 
 	void OnCollisionEnter(Collision collision)
 	{
-		Impact();
+		foreach (ContactPoint contact in collision.contacts)
+		{
+			Impact(contact.point);
+			break;
+		}
 	}
 
 }

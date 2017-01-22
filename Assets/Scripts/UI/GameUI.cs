@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
@@ -46,6 +47,11 @@ public class GameUI : MonoBehaviour
 	public void GameOver()
 	{
 		gameOverPage.SetActive(true);
+	}
+
+	public void RestartGame()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 	public IEnumerator FadeIn()

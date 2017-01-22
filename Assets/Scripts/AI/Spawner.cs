@@ -35,7 +35,7 @@ public class Spawner : MonoBehaviour
         Physics.Raycast(spawnPos + Vector3.up*2000	, Vector3.down, out hit);
         if (hit.collider != null) spawnPos = hit.point;
 
-        Instantiate(objectToSpawn, spawnPos, Quaternion.identity);
+        Instantiate(objectToSpawn, spawnPos, Quaternion.LookRotation(hit.normal) * Quaternion.Euler(90, 0, 0));
 
         float timeToWait = Random.Range(spawnConfig.MinSpawnTime, spawnConfig.MaxSpawnTime);
         yield return new WaitForSeconds(timeToWait);
