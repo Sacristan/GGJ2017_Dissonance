@@ -19,16 +19,6 @@ public class Mob : Pawn, IDamageable
     {
     }
 
-    public void OnEnable()
-    {
-        Messenger.AddListener(Messages.SunInitialised, HandleSunKickedIn);
-    }
-
-    public void OnDisable()
-    {
-        Messenger.RemoveListener(Messages.SunInitialised, HandleSunKickedIn);
-    }
-
     public virtual void Start()
     {
         if (receivedDamageKey == UNASSIGNED_KEY) throw new KeyNotAssignedException();

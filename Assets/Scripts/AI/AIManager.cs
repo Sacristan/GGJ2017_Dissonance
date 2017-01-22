@@ -58,13 +58,18 @@ public class AIManager : MonoBehaviour
 
     private int _mobCount = 0;
 
-    private float initTime;
     private Spawner spawnerInstance;
-    private bool sunActive = false;
     #endregion
 
     #region Properties
-    public static bool CanSpawnMobs { get { return singletone._mobCount < MAX_MOB_COUNT; } }
+    public static bool CanSpawnMobs
+    {
+        get
+        {
+            if (singletone == null) singletone = FindObjectOfType<AIManager>();
+            return singletone._mobCount < MAX_MOB_COUNT;
+        }
+    }
 
     public static MeleeMob MeleeMob { get { return singletone.meleeMob; } }
     public static RangedMob RangedMob { get { return singletone.rangedMob; } }
@@ -79,21 +84,9 @@ public class AIManager : MonoBehaviour
     void Awake()
     {
         if (singletone == null) singletone = this;
-        else Destroy(singletone);
 
         spawnerInstance = Instantiate<Spawner>(spawner);
         spawnerInstance.transform.position = Vector3.zero;
-
-        initTime = Time.realtimeSinceStartup;
-    }
-
-    private void Update()
-    {
-        if(!sunActive && Time.realtimeSinceStartup - initTime >= timeWhenSunKicksIn)
-        {
-            sunActive = true;
-            InitialiseSun();
-        }
     }
 
     #endregion
@@ -102,10 +95,5 @@ public class AIManager : MonoBehaviour
     {
         singletone._mobCount = GameObject.FindObjectsOfType<Mob>().Length;
         Sacristan.Logger.Log(string.Format("Found {0} mobs", singletone._mobCount));
-    }
-
-    private void InitialiseSun()
-    {
-        Messenger.Broadcast(Messages.SunInitialised);
     }
 }

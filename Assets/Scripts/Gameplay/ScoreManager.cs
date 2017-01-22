@@ -36,7 +36,6 @@ public class ScoreManager : MonoBehaviour
         Messenger<float>.AddListener(Messages.ReceivedDamageMeleeMob, HandleReceivedDamageMeleeMob);
         Messenger<float>.AddListener(Messages.ReceivedDamageNestMob, HandleReceivedDamageNestMob);
 
-        Messenger.AddListener(Messages.SunInitialised, HandleSunInitialised);
     }
 
     private void OnDestroy()
@@ -50,8 +49,6 @@ public class ScoreManager : MonoBehaviour
         Messenger<float>.RemoveListener(Messages.ReceivedDamageRangedMob, HandleReceivedDamageRangedMob);
         Messenger<float>.RemoveListener(Messages.ReceivedDamageMeleeMob, HandleReceivedDamageMeleeMob);
         Messenger<float>.RemoveListener(Messages.ReceivedDamageNestMob, HandleReceivedDamageNestMob);
-
-        Messenger.AddListener(Messages.SunInitialised, HandleSunInitialised);
     }
 
 
@@ -112,9 +109,5 @@ public class ScoreManager : MonoBehaviour
         AddScore(ScoreTable.DamagedNestScore);
     }
 
-    private void HandleSunInitialised()
-    {
-        VisualiseScore("Death");
-    }
     #endregion
 }
