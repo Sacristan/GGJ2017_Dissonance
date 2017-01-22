@@ -123,7 +123,7 @@ MonoBehaviour:
   ammoType: 6
   owner: {fileID: 0}
   attackType: 2
-  projectile: {fileID: 114848104898507338, guid: 26aea64826f63a146ab0dbdab5d5a5dd,
+  projectile: {fileID: 114517795971789932, guid: 26aea64826f63a146ab0dbdab5d5a5dd,
     type: 2}
   attackCooldown: 0.5
   attackSound: {fileID: 8300000, guid: 052847e96f5b88e4d9889a0789728c61, type: 3}
