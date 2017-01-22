@@ -5,9 +5,13 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
+	[Header("Hud")]
 	public Text healthText;
 	public Text ammoText;
 	public Text scoreText;
+
+	[Header("Screens")]
+	public GameObject gameOverPage;
 
 	void Awake()
 	{
@@ -32,5 +36,10 @@ public class GameUI : MonoBehaviour
 	public void UpdateScoreGraphics()
 	{
 		scoreText.text = "Score: " + The.gameLogic.score;
+	}
+
+	public void GameOver()
+	{
+		gameOverPage.SetActive(true);
 	}
 }

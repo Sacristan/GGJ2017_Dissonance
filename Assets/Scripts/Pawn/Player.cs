@@ -88,9 +88,17 @@ public class Player : Pawn, IDamageable
 		}
 
 		// Switching weapons
-		if (Input.GetKeyDown(KeyCode.Alpha0))
+		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
-			Attack();
+			SwitchWeapon(0);
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha2))
+		{
+			SwitchWeapon(1);
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha3))
+		{
+			SwitchWeapon(2);
 		}
 		
 		// Apply movement input to velocity
@@ -98,11 +106,15 @@ public class Player : Pawn, IDamageable
 		velocity += camRot * new Vector3(inputVec.x, 0, inputVec.y) * maxSpeed * Time.deltaTime;
 	}
 
-	void Jump()
+	public override void Jump()
 	{
 		if (body.isGrounded)
 		{
 			velocity.y = 10;
+			if (jumpSounds.Length > 0)
+			{
+				Sound.PlayClip(jumpSounds);
+			}
 		}
 	}
 
@@ -124,10 +136,18 @@ public class Player : Pawn, IDamageable
 	}
 	public void SwitchWeapon(int targetWeapon)
 	{
+		if (targetWeapon >= weapons.Count)
+		{
+			return;
+		}
+
 		if (currentWeapon)
 		{
 			Destroy(currentWeapon.gameObject);
 		}
+
+		armAnimator.SetTrigger("Draw");
+		attackCooldown = 1;
 
 		currentWeapon = Instantiate(weapons[targetWeapon]);
 		currentWeapon.owner = this;
@@ -156,6 +176,7 @@ public class Player : Pawn, IDamageable
 
     public void Die()
     {
+		The.gameLogic.GameOver();
         Messenger.Broadcast(Messages.DiedPlayer);
     }
 	#endregion
