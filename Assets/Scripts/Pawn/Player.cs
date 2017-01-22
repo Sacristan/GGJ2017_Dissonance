@@ -174,6 +174,11 @@ public class Player : Pawn, IDamageable
 	{
 		Sacristan.Logger.Log (string.Format("{0} received {1} damage at {2}", gameObject.name, damage, Time.realtimeSinceStartup));
         Messenger<float>.Broadcast(Messages.ReceivedDamagePlayer, damage);
+
+        this.health = Mathf.Clamp(health - damage, 0, this.maxHealth); // clamp to ensure correct UI content
+        if (health <= 0) Die();
+
+        The.gameUI.healthText.text = string.Format("Health: {0}% ", health);
     }
 
     public void Die()

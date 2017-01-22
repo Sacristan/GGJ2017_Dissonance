@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
-public class ArcProjectile : MonoBehaviour
+public class ArcProjectile : Projectile
 {
-
+    public override void Update()
+    {
+    }
 }
