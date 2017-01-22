@@ -12,12 +12,10 @@ public class ScoreManager : MonoBehaviour
 
     private static ScoreManager singletone;
 
-    [SerializeField]
-    private int score = 0;
     #endregion
 
     #region Properties
-    public static int Score { get { return singletone.score; } }
+    //public static int Score { get { return singletone.score; } }
     #endregion
 
     #region MonoBehaviour
@@ -58,13 +56,14 @@ public class ScoreManager : MonoBehaviour
     private void AddScore(int scoreToAdd)
     {
         if (OnScoreChanged != null) OnScoreChanged();
-        score += scoreToAdd;
-        VisualiseScore(score.ToString());
+        The.gameLogic.score += scoreToAdd;
+        VisualiseScore(The.gameLogic.score.ToString());
     }
 
     private void VisualiseScore(string str)
     {
-        The.gameUI.scoreText.text = string.Format("Score: {0}", str);
+		//The.gameUI.scoreText.text = string.Format("Score: {0}", str);
+		The.gameUI.UpdateScoreGraphics();
     }
     #endregion
 
