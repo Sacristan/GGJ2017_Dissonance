@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 422354}
   - component: {fileID: 9549858}
   - component: {fileID: 143185868652320316}
+  - component: {fileID: 114244369412345122}
   m_Layer: 0
   m_Name: MeleeAI
   m_TagString: Untagged
@@ -2262,6 +2263,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 128264}
   m_IsPrefabParent: 1
+--- !u!114 &114244369412345122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ca4a7af218bc149932b2921c1626d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &143185868652320316
 CharacterController:
   m_ObjectHideFlags: 1

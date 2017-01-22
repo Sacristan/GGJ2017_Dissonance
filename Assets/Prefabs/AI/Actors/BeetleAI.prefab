@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4990503541191766}
   - component: {fileID: 143862306053092362}
+  - component: {fileID: 114592014362610760}
   m_Layer: 0
   m_Name: BeetleAI
   m_TagString: Untagged
@@ -139,6 +140,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1943253834594814}
   m_Mesh: {fileID: 4300000, guid: 0efbc75fa2f07664bba868e86b2da0c9, type: 3}
+--- !u!114 &114592014362610760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1303447183859276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1de5ccd9a143747b2ebda0c1521308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114667457233965226
 MonoBehaviour:
   m_ObjectHideFlags: 1
