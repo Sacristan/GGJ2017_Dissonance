@@ -37,6 +37,7 @@ public class Player : Pawn, IDamageable
 	{
 		PlayerControls();
 		base.Update();
+		aimDirection = The.gameCamera.transform.rotation * Vector3.forward;
 	}
 
 	#endregion
@@ -146,6 +147,7 @@ public class Player : Pawn, IDamageable
 			Destroy(currentWeapon.gameObject);
 		}
 
+		armAnimator.SetInteger("WeaponType", (int)weapons[targetWeapon].armAnimType);
 		armAnimator.SetTrigger("Draw");
 		attackCooldown = 1;
 

@@ -41,6 +41,7 @@ ModelImporter:
     100066: Thumb2_R
     100068: WeaponHolder_L
     100070: WeaponHolder_R
+    100072: RocketLauncher_Cube
     400000: Arm_L
     400002: Arm_R
     400004: Armature
@@ -77,24 +78,31 @@ ModelImporter:
     400066: Thumb2_R
     400068: WeaponHolder_L
     400070: WeaponHolder_R
+    400072: RocketLauncher_Cube
     2300000: ArmController
     2300002: HandController
     2300004: Handgun_Gizmo
     2300006: IcoController
+    2300008: RocketLauncher_Cube
     3300000: ArmController
     3300002: HandController
     3300004: Handgun_Gizmo
     3300006: IcoController
+    3300008: RocketLauncher_Cube
     4300000: HandController
     4300002: ArmController
     4300004: IcoController
     4300006: Handgun_Gizmo
     4300008: Arms
+    4300010: RocketLauncher_Cube
     7400000: Default Take
     7400002: Default
     7400004: GunIdleRight
     7400006: GunShootRight
     7400008: GunDrawRight
+    7400010: RocketLauncherDraw
+    7400012: RocketLauncherIdle
+    7400014: RocketLauncherShoot
     9500000: //RootNode
     13700000: Arms
   materials:

@@ -18,6 +18,14 @@ public class Cannon : MonoBehaviour
     private float lastShotTime; //Remove this as soona as functionality added
 
     #region MonoBehaviour
+	void Start()
+	{
+		if (!target)
+		{
+			target = The.player.transform;
+		}
+	}
+
     void Update()
     {
         if (Time.realtimeSinceStartup-lastShotTime > 3f)

@@ -11,6 +11,12 @@ public class Weapon : MonoBehaviour
 		Projectile,
 		Special,
 	}
+	public enum ArmAnimType
+	{
+		Handgun = 0,
+		Rocket = 1,
+		Special = 2,
+	}
 
 	public Item.Type ammoType;
 	public Pawn owner;
@@ -26,6 +32,9 @@ public class Weapon : MonoBehaviour
 
 	[Header("Other")]
 	public Transform barrel;
+
+	[Header("Animation")]
+	public ArmAnimType armAnimType;
 
 	public void Attack()
 	{
@@ -49,6 +58,7 @@ public class Weapon : MonoBehaviour
 				break;
 			case AttackType.Projectile:
 				var projO = Instantiate(projectile, barrel.position, barrel.rotation);
+				projO.direction = owner.aimDirection;
 				break;
 			case AttackType.Special:
 				// Uh..

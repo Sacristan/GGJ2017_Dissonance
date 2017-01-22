@@ -71,6 +71,7 @@ public class Pawn : MonoBehaviour
 
 	// Some private stuff
 	internal float attackCooldown;
+	internal Vector3 aimDirection;
 
 	public virtual void Awake()
 	{
