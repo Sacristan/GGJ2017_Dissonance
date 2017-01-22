@@ -14,7 +14,7 @@ public class Mob : Pawn, IDamageable
     protected string receivedDamageKey = UNASSIGNED_KEY;
     protected string diedKey = UNASSIGNED_KEY;
 
-    private CharacterController characterController;
+    protected CharacterController characterController;
 
     #region MonoBehaviour
     public override void Awake()

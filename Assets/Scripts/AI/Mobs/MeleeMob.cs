@@ -1,6 +1,9 @@
-﻿
+﻿using UnityEngine;
+
 public class MeleeMob : Mob
 {
+
+
     public override void Awake()
     {
         base.Awake();
