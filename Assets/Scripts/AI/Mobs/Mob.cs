@@ -69,7 +69,6 @@ public class Mob : Pawn, IDamageable
 
         health -= damage;
         if (health <= 0) Die();
-
     }
 
     public virtual void Die()

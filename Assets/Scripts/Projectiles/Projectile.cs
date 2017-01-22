@@ -24,7 +24,6 @@ public class Projectile : MonoBehaviour
     public virtual void Awake()
 	{
 		coll = GetComponent<Collider>();
-
         Destroy(gameObject, 10f);
 	}
 
