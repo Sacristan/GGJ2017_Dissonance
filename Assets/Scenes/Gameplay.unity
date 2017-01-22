@@ -560,6 +560,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114443164453031402, guid: 321bd10303444d4479960fa247b276c3,
+        type: 2}
+      propertyPath: spawnerNestConfig.maxSpawnTime
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114443164453031402, guid: 321bd10303444d4479960fa247b276c3,
+        type: 2}
+      propertyPath: spawnerNestConfig.minSpawnTime
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 321bd10303444d4479960fa247b276c3, type: 2}
   m_IsPrefabParent: 0

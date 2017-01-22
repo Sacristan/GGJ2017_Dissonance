@@ -30,6 +30,11 @@ public class Spawner : MonoBehaviour
         while (!AIManager.CanSpawnMobs) { yield return new WaitForSeconds(2f); }
 
         Vector3 spawnPos = AIUtils.FindSuitableRandomPosition(transform.position, spawnConfig.SpawnRadius);
+
+        RaycastHit hit;
+        Physics.Raycast(spawnPos, Vector3.down, out hit);
+        if (hit.collider != null) spawnPos = hit.point;
+
         Instantiate(objectToSpawn, spawnPos, Quaternion.identity);
 
         float timeToWait = Random.Range(spawnConfig.MinSpawnTime, spawnConfig.MaxSpawnTime);

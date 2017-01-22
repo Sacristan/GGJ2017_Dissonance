@@ -9,6 +9,7 @@ public static class AIUtils
         Vector3 result = origin;
 
         result.x += Random.Range(-radius, radius);
+        result.y += 1f;
         result.z += Random.Range(-radius, radius);
 
         return result;
