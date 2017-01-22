@@ -17,7 +17,6 @@ public class NestMob : Mob
         base.Awake();
         receivedDamageKey = Messages.ReceivedDamageNestMob;
         diedKey = Messages.DiedNestMob;
-
     }
 
     public override void Start()

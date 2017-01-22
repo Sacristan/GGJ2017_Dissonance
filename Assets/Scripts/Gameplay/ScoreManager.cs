@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     public delegate void ScoreChanged();
     public static event ScoreChanged OnScoreChanged;
 
-    private static ScoreManager singletone;
+    public static ScoreManager singletone;
 
     #endregion
 
@@ -53,7 +53,7 @@ public class ScoreManager : MonoBehaviour
     #endregion
 
     #region Score Calc
-    private void AddScore(int scoreToAdd)
+    public void AddScore(int scoreToAdd)
     {
         if (OnScoreChanged != null) OnScoreChanged();
         The.gameLogic.score += scoreToAdd;

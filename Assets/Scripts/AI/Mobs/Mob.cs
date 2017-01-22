@@ -72,13 +72,23 @@ public class Mob : Pawn, IDamageable
         ExecuteDeath();
     }*/
 
-    private void HandleSunKickedIn()
+    public override void ApplyDamage(float damage)
     {
-		Die();
+        //ScoreManager.singletone.AddScore(5);
+        Sacristan.Logger.Log(string.Format("{0} received {1} damage at {2}", gameObject.name, damage, Time.realtimeSinceStartup));
+        Messenger<float>.Broadcast(Messages.ReceivedDamageNestMob, damage);
+
+        health = Mathf.Clamp(health - damage, 0, this.maxHealth); // clamp to ensure correct UI content
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 
     public override void Die()
     {
+        //ScoreManager.singletone.AddScore(20);
+        Messenger.Broadcast(Messages.DiedNestMob);
         GameObject bloodSplatter = Instantiate(AIManager.BloodSplatter, transform.position, Quaternion.identity);
         GameObject audioEffect = new GameObject("DeathAudio");
         audioEffect.transform.position = transform.position;
@@ -90,4 +100,5 @@ public class Mob : Pawn, IDamageable
         Destroy(bloodSplatter, 2f);
         Destroy(gameObject);
     }
+
 }
