@@ -370,7 +370,7 @@ MonoBehaviour:
   painSounds: []
   deathSounds: []
   jumpSounds: []
-  prefabToSpawn: {fileID: 1303447183859276, guid: 7886f22d063526442b9b59cbed1afb08,
+  prefabToSpawn: {fileID: 1910688447802618, guid: 7886f22d063526442b9b59cbed1afb08,
     type: 2}
   spawnTime: 5
   spawnTimeDecreaseRate: 0.2

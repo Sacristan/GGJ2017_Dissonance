@@ -38,15 +38,16 @@ public class NestMob : Mob
         if (distanceFromTarget <= closeEnoughDistance)
         {
             _player.ApplyDamage(damageToPlayer);
-            ExecuteDeath();
+            Die();
             Destroy(this);
         }
         else
         {
             Vector3 dir = target - currentPos;
+            dir.y = 0;
             dir.Normalize();
 
-            characterController.Move(dir * speed * Time.deltaTime);
+            //characterController.Move(dir * speed * Time.deltaTime);
         }
 
     }
