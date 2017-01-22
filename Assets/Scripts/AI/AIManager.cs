@@ -92,7 +92,7 @@ public class AIManager : MonoBehaviour
         if(!sunActive && Time.realtimeSinceStartup - initTime >= timeWhenSunKicksIn)
         {
             sunActive = true;
-
+            InitialiseSun();
         }
     }
 

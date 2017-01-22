@@ -17,4 +17,6 @@ public class Projectile : MonoBehaviour
 	{
 		transform.position += direction * speed * Time.deltaTime;
 	}
+
+
 }

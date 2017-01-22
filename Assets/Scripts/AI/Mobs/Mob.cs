@@ -4,7 +4,7 @@ using System;
 
 public class Mob : Pawn, IDamageable
 {
-    public class KeyNotAssignedException: Exception
+    public class KeyNotAssignedException : Exception
     {
         public override string Message { get { return "Message Key not assigned my Mob child"; } }
     }
@@ -17,7 +17,16 @@ public class Mob : Pawn, IDamageable
     #region MonoBehaviour
     public override void Awake()
     {
+    }
 
+    public void OnEnable()
+    {
+        Messenger.AddListener(Messages.SunInitialised, HandleSunKickedIn);
+    }
+
+    public void OnDisable()
+    {
+        Messenger.RemoveListener(Messages.SunInitialised, HandleSunKickedIn);
     }
 
     public virtual void Start()
@@ -48,5 +57,10 @@ public class Mob : Pawn, IDamageable
     {
         Sacristan.Logger.Log(string.Format("{0} Died", gameObject.name));
         Messenger.Broadcast(diedKey);
+    }
+
+    private void HandleSunKickedIn()
+    {
+
     }
 }
