@@ -191,7 +191,7 @@ public class Console : MonoBehaviour
 			PlayerPrefs.SetInt("ShotsTaken", shotsTaken);
 			string filename = Application.persistentDataPath + "/ScreenShots/Shot_" + shotsTaken + ".png";
 
-			Application.CaptureScreenshot(filename);
+			ScreenCapture.CaptureScreenshot(filename);
 			Log("Screenshot " + shotsTaken + " saved");
 		}
 	}
